@@ -54,7 +54,7 @@ function App() {
                     <button onClick={remove}>Retirer</button>
                 </Fragment>
             ) : (
-              <p>Le contenu n'est pas visible !</p>
+                <p>Le contenu n'est pas visible !</p>
             )}
 
             <button onClick={toggle}>Toggle Visibilité</button>
