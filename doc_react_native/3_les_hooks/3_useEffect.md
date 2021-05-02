@@ -1,37 +1,32 @@
-# Le hook useState
+# Le hook useEffect
 
-## Formule hook useState
+## Formule hook useEffect
 
-la formule générale pour utiliser le hook useState
+la formule générale pour utiliser le hook useEffect
 
-- const [X, Y] = useState(a)
+- useEffect(A, B)
 
-    - useState dans un composant de type fonction représente this.state dans un composant de type classe
+    - Le Hook d’effet permet l’exécution d’effets de bord dans les fonctions composants, il est Similaire à componentDidMount() et componentDidUpdate()
 
-    - useState est une fonction qui prends un élément en paramètre `(a)` et retoune un tableau
+    - useEffect est une fonction asynchrone qui prends 2 éléments en paramètre (A et B)
 
-    - Ce tableau a été déstructuré de façon à ce que `X` soit le 1er élément et `Y` le 2ème élément
-
-    - `X` est notre `state` et aura comme valeur par défaut `a`
-
-    - `Y` est la fonction qui nous permettra de mettre à jour notre `state`
+    - A est la fonction a exécuter
+    
+    - B tableau d'éléments dont doit dépendre useEffect
 
 ## Le code
 
 Dans `App.js`
 
-- On importe `useState qui représente le state` si on était dans une classe
+- On importe useEffect depuis react
 
-- const [state, setState] = useState();. 
+- `useEffect(() => {console.log('Je suis useEffect', state);}, [])` , useEffect avec un tableau vide en 2ème argument, ce comportera comme la méthode `componentDidMount()` et donc reagira seulement au 1er affichage du rendu
 
-    - `state` est un objet, 
-    - `setState` est la fonction qui va nous permettre de modifier le contenu de l'objet `state`
-    - Dans `useState()` , il faut mettre en argument l'état initial de l'objet `state`
-
+- `useEffect(() => {console.log('Je suis useEffect', state);}, [state])`, useEffect avec l'objet qui représente notre `state` dans le tableau en 2ème argument, ce comportera à la fois comme la méthode `componentDidMount()` et comme la méthode `componentDidUpdate()`. Donc il réagira à la fois au 1er affichage du rendu et aussi à chaque fois qu'on va modifier l'objet qui représente notre `state`
 
 Dans `App.js`
 
-    import React, {useState, Fragment} from 'react';
+    import React, {useState, useEffect, Fragment} from 'react';
     import './App.css';
 
     function App() {
@@ -42,6 +37,13 @@ Dans `App.js`
             count: 0,
             visible: true
         });
+
+        useEffect(
+            () => {
+                console.log('Je suis useEffect', state);
+            }, 
+            [state]
+        );
 
         const add = () => {
             const newCount = state.count + 1;
@@ -96,3 +98,7 @@ Dans `App.js`
     }
 
     export default App;
+
+
+
+

@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import './App.css';
 
 function App() {
@@ -9,6 +9,13 @@ function App() {
         count: 0,
         visible: true
     });
+
+    useEffect(
+        () => {
+            console.log('Je suis useEffect', state);
+        }, 
+        [state]
+    );
 
     const add = () => {
         const newCount = state.count + 1;
