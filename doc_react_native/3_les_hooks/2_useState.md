@@ -1,5 +1,21 @@
 # Le hook useState
 
+## Formule hook useState
+
+la formule générale pour utiliser le hook useState
+
+- const [X, Y] = useState(a)
+
+    - useState est une fonction qui prends un élément en paramètre `(a)` et retoune un tableau
+
+    - Ce tableau a été déstructuré de façon à ce que `X` soit le 1er élément et `Y` le 2ème élément
+
+    - `X` est notre `state` et aura comme valeur par défaut `a`
+
+    - `Y` est la fonction qui nous permettra de mettre à jour notre `state`
+
+## Le code
+
 Dans `App.js`
 
 - On importe `useState qui représente le state` si on était on une classe
