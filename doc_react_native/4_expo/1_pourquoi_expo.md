@@ -44,3 +44,10 @@ Expo est un framework et une plate-forme pour les applications React universelle
 - Il transpile (transforme) du code JSX en code JS, le tout en un seul fichier
 
 - Il fournit les assets (ressources statiques) tels que : images, fonts, etc.
+
+
+### Télécharger expo sur le téléphone
+
+allez sur le play store cherchez `expo go`
+
+ou apple store cherchez `expo client`
