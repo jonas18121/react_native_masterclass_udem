@@ -4,6 +4,17 @@
 
     > expo init <nom_du_projet>
 
+lors de l'intallation, expo nous demandra de choisir un template
+
+- soit démarrer de 0 recommender: 
+
+    blank                 a minimal app as clean as an empty canvas
+
+- soit démarrer de 0 mais avec une configuration typeScript. 
+
+    blank (TypeScript)    same as blank but with TypeScript configuration
+et bien d'autre
+
 ## Enter dans le projet
 
     > cd <nom_du_projet>
@@ -44,3 +55,15 @@ ou
 ou 
 
     > npm web
+
+## Lancer L'Application Sur Téléphone
+
+### Télécharger expo sur le téléphone
+
+allez sur le play store cherchez `expo go`
+
+ou apple store cherchez `expo client`
+
+puis depuis votre application mobile `expo go` ou `expo client`,Scannez le QR code qui s'affiche en ligne de commande après avoir lancez la commande
+
+    > expo start

@@ -51,3 +51,7 @@ Expo est un framework et une plate-forme pour les applications React universelle
 allez sur le play store cherchez `expo go`
 
 ou apple store cherchez `expo client`
+
+puis depuis votre application mobile `expo go` ou `expo client`,Scannez le QR code qui s'affiche en ligne de commande après avoir lancez la commande
+
+    > expo start
