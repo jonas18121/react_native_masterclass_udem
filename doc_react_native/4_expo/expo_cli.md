@@ -11,3 +11,7 @@ ou
 ## Voir la version de expo
 
     > expo --version
+
+## Creer un projet avec expo
+
+    > expo init <nom_du_projet>
