@@ -2,7 +2,7 @@
 
 - Le composant React Native `View` corresponds à la balise HTML `div`.
 
-- Coté code Natif `View` sera transformé en `ViewGroup` pour Android avec Java et en `UIView` pour iOS en Objectif-c
+- Coté code Natif `View` sera transformé en `ViewGroup` pour Android avec Java et en `UIView` pour iOS avec Objectif-c
 
 - `View` est le composant le plus fondamental dans React Native
 
@@ -12,7 +12,7 @@
 
 - `View` prend en charge certaines commandes tactiles et d'accessibilité
 
-- `View` peut être utilisé sous forme imbriquée (avoir une `View` à l'intérieur d'une `View`)
+- `View` peut être utilisé sous forme imbriquée (avoir un composant `View` à l'intérieur d'un composant `View`)
 
 
 ## test du composant View
