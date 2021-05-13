@@ -18,6 +18,10 @@
 
 Dans `App.js`
 
+- On importe `Text` depuis react native
+
+Dans `App.js`
+
     import React from 'react';
     import { View, Text } from 'react-native';
 
