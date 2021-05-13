@@ -19,6 +19,8 @@ Dans `App.js`
 
 - Après avoir créer des propriétés styles qui reçois le CSS. on peut utiliser notre constante style dans le composant `View` et `Text`
 
+- Les `valeurs hexadécimaux doivent être dans des quotes` pour bien fonctionner et pas dans des guillements. exemple `color: '#fff' , backgroundColor: '#f58'`
+
 Dans `App.js`
 
     import React from 'react';
