@@ -19,6 +19,10 @@
 
 Dans `App.js`
 
+- On importe `View` depuis react native
+
+Dans `App.js`
+
     import React from 'react';
     import { View } from 'react-native';
 
