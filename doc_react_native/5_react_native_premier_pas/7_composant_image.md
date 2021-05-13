@@ -53,6 +53,8 @@ Dans `App.js`
 
             {/* afficher une image en locale */}
             <Image source={LOGO} style={styles.logo} />
+
+            {/* afficher une image depuis internet */}
             <Image source={{uri : urlWeb }} style={styles.logo} />
         </View>
         )
