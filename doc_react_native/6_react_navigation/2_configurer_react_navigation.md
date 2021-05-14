@@ -29,6 +29,8 @@ Ce qu'on va faire :
 
 ## On test tous ça
 
+### Etape 1
+
 Dans `App.js`
 
 - On importe `NavigationContainer` à partir de `@react-navigation/native`
@@ -59,6 +61,96 @@ Dans `App.js`
 
         return (
             <View style={styles.container}></View>
+        )
+    }
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            backgroundColor: "green",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 35
+        }
+    });
+
+    export default App;
+
+
+### Etape 2
+
+1) On va creer quelques fichiers `Screen` (écran) pour les affichés sur notre téléphone
+
+    - On creer un dossier nommé `screen` et dedans, on va creer quelques fichiers `Screen` (écran)
+    - HomeScreen.js, LoginScreen.js, profileScreen.js, WelcomeScreen.js
+
+2) Dans chaque fichiers `Screen` (écran), on va mettre un code simple et similaire pour l'instant, il y aura juste le mot qui sera devant Screnn qui va changer
+
+Dans `HomeScreen.js` et les autres fichiers `Screen` (écran)
+
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+    const HomeScreen = (props) => {
+        
+        return (
+
+            <View style={ styles.container }>
+                <Text>Home Screen</Text>
+            </View>
+        );
+    }
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "lightgrey"
+        }
+    });
+
+    export default HomeScreen;
+
+
+Dans `App.js`
+
+- Maintenant qu'on a vérifier que `createStackNavigator()` retourne bien les 2 propriétés :  `Navigator` (navigateur) et `Screen` (écran) 
+
+- On le déstructure : `const { Navigator, Screen } = createStackNavigator();`
+
+- On met le composant `NavigationContainer` qui va entourré le composant `Navigator` 
+
+- Le composant `Navigator` va entourré le composant `Screen`
+
+- Le premier composant `Screen` sera celui qui sera afficher par défaut à l'utilisateur
+
+Dans `App.js`
+
+    import React from 'react';
+    import { 
+        View, 
+        Text, 
+        StyleSheet, 
+    } from 'react-native';
+    import { NavigationContainer } from '@react-navigation/native';
+    import { createStackNavigator } from '@react-navigation/stack';
+
+    import WelcomeScreen from './screens/WelcomeScreen';
+    import LoginScreen from './screens/LoginScreen';
+
+    const { Navigator, Screen } = createStackNavigator();
+
+    const App = () => {
+
+        return (
+            <NavigationContainer>
+                <Navigator>
+                    <Screen name="Welcome" component={WelcomeScreen} />
+                    <Screen name="Login" component={LoginScreen} />
+                </Navigator>
+            </NavigationContainer>
         )
     }
 
