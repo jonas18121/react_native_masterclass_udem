@@ -217,23 +217,23 @@ Dans `App.js`
             marginTop: 35
         },
         hello: {
-        color: '#fff',
-        fontSize: 20,
-        fontWeight: "bold",
-        marginTop: 10
+            color: '#fff',
+            fontSize: 20,
+            fontWeight: "bold",
+            marginTop: 10
         },
         input: {
-        borderWidth: 1,
-        backgroundColor: '#fff',
-        width: 200,
-        height: 30,
-        marginTop: 10
+            borderWidth: 1,
+            backgroundColor: '#fff',
+            width: 200,
+            height: 30,
+            marginTop: 10
         },
         logo: {
-        height: 150,
-        width: 150,
-        marginTop: 10,
-        backgroundColor: "#f58"
+            height: 150,
+            width: 150,
+            marginTop: 10,
+            backgroundColor: "#f58"
         },
         item : {
             borderWidth: 2,
