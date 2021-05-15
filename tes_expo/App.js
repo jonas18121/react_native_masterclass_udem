@@ -5,7 +5,7 @@ import {
     StyleSheet, 
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, Header } from '@react-navigation/stack';
 
 import WelcomeScreen from './screens/WelcomeScreen';
 import LoginScreen from './screens/LoginScreen';
@@ -29,7 +29,13 @@ const App = () => {
             <Navigator>
                 <Screen name="Welcome" component={WelcomeScreen} />
                 <Screen name="Login" component={LoginScreen} />
-                <Screen name="Root" component={Root} />
+                <Screen name="Root" component={Root} options={(option) => {
+                    return {
+                        headerLeft: null,
+                        title: null,
+                        headerShown: false
+                    }
+                }}/>
             </Navigator>
         </NavigationContainer>
     )
