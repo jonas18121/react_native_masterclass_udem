@@ -19,23 +19,51 @@ const App = () => {
     const Root = () => (
 
         <Navigator>
+
             <Screen name="Home" component={HomeScreen} />
-            <Screen name="Profile" component={ProfileScreen} />
+
+            <Screen 
+                name="Profile" 
+                component={ProfileScreen} 
+                options={{ headerShown: false }}  
+            />
+
         </Navigator>
     );
 
     return (
         <NavigationContainer>
             <Navigator>
-                <Screen name="Welcome" component={WelcomeScreen} />
-                <Screen name="Login" component={LoginScreen} />
-                <Screen name="Root" component={Root} options={(option) => {
-                    return {
-                        headerLeft: null,
-                        title: null,
-                        headerShown: false
-                    }
-                }}/>
+                <Screen 
+                    name="Welcome" 
+                    component={WelcomeScreen} 
+                    options={{ headerShown: false }} 
+                />
+
+                <Screen 
+                    name="Login" 
+                    component={LoginScreen} 
+                    options={(options) => {
+                        return {
+                            headerLeft : null,
+                            title : "Connexion",
+                            headerStyle: {
+                                backgroundColor: "orange",
+                            },
+                            headerTintColor: "white",
+                            headerTitleStyle: {
+                                fontWeight: "bold"
+                            }
+                        }
+                    }} 
+                />
+
+                <Screen 
+                    name="Root" 
+                    component={Root} 
+                    options={{ headerShown: false }}
+                />
+
             </Navigator>
         </NavigationContainer>
     )
