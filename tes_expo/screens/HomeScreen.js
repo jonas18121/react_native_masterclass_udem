@@ -12,6 +12,10 @@ const HomeScreen = (props) => {
         params: {},
         screen: "Profile"
     });
+
+    const goBack = () => props.navigation.goBack();
+
+    const goLogin = () => props.navigation.navigate('Login');
     
     return (
 
@@ -21,6 +25,18 @@ const HomeScreen = (props) => {
             <TouchableOpacity onPress={ goProfile }>
                 <View style={ styles.button }>
                     <Text> Aller au Profile</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={ goLogin }>
+                <View style={ styles.button }>
+                    <Text> Aller a Login</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={ goBack }>
+                <View style={ styles.button }>
+                    <Text> Retour en arrière</Text>
                 </View>
             </TouchableOpacity>
         </View>

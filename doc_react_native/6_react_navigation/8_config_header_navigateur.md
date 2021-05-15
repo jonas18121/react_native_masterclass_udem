@@ -1,24 +1,21 @@
-# Configuer Le Header
+#  Configurer Les Header De Tous Les Ecrans D'un Navigateur
 
-Site : https://reactnavigation.org/docs/screen-options/
+Pour donner un même style a tous les headers rapidement, on peut configurer les options des screen directement dans le composant `Navigator` 
 
-Voir les différents propriétés de screen-options: https://reactnavigation.org/docs/stack-navigator#headerleft 
-
-Pour Configuer Le Header d'un `screen` (écran), on ajoute une propriété `options` dans le composant `<screen>`
-
-Dans `App.js`
-
-- Dans le `screen` de `login` :
-
-    - On a enlevé la flèche de retour `headerLeft : ` à gauche
-    - On a renommé le titre `title :`
-    - On a changer la couleur du background du header `headerStyle:`
-    - On a mis en blanc tout text qui serait dans le header `headerTintColor:`
-    - On a mis le texte du titre en gras `headerTitleStyle:`
-
-- Dans le `screen` de `Root`, `Welcome` et `profile`, on a cacher leurs header, `options={{ headerShown: false }}`
+    <Navigator
+        screenOptions={(options) => {
+            return {
+                headerLeft : null,
+                title: options.route.name,
+                headerStyle: {
+                    backgroundColor: "orange",
+                }
+            }
+        }}
+    >
 
 Dans `App.js`
+
 
     import React from 'react';
     import { 
@@ -49,13 +46,23 @@ Dans `App.js`
                     component={ProfileScreen} 
                     options={{ headerShown: false }}  
                 />
-                
+
             </Navigator>
         );
 
         return (
             <NavigationContainer>
-                <Navigator>
+                <Navigator
+                    screenOptions={(options) => {
+                        return {
+                            headerLeft : null,
+                            title: options.route.name,
+                            headerStyle: {
+                                backgroundColor: "orange",
+                            }
+                        }
+                    }}
+                >
                     <Screen 
                         name="Welcome" 
                         component={WelcomeScreen} 
@@ -67,11 +74,7 @@ Dans `App.js`
                         component={LoginScreen} 
                         options={(options) => {
                             return {
-                                headerLeft : null,
-                                title : "Connexion",
-                                headerStyle: {
-                                    backgroundColor: "orange",
-                                },
+                                title: "Connexion",
                                 headerTintColor: "white",
                                 headerTitleStyle: {
                                     fontWeight: "bold"

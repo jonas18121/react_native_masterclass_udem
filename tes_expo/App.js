@@ -33,7 +33,17 @@ const App = () => {
 
     return (
         <NavigationContainer>
-            <Navigator>
+            <Navigator
+                screenOptions={(options) => {
+                    return {
+                        headerLeft : null,
+                        title: options.route.name,
+                        headerStyle: {
+                            backgroundColor: "orange",
+                        }
+                    }
+                }}
+            >
                 <Screen 
                     name="Welcome" 
                     component={WelcomeScreen} 
@@ -45,11 +55,7 @@ const App = () => {
                     component={LoginScreen} 
                     options={(options) => {
                         return {
-                            headerLeft : null,
-                            title : "Connexion",
-                            headerStyle: {
-                                backgroundColor: "orange",
-                            },
+                            title: "Connexion",
                             headerTintColor: "white",
                             headerTitleStyle: {
                                 fontWeight: "bold"
