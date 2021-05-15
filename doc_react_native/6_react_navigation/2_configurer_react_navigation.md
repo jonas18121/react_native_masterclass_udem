@@ -6,7 +6,33 @@ Ce qu'on va faire :
 
     - `NavigationContainer` est un composant qui gère notre aborescence de navigation
     
-    - `NavigationContainer` contient la `state` de la navigation
+    - `NavigationContainer` contient le `state` de la navigation, c'est un objet qui contient 2 propriétés importante qui sont également des objets : `navigation` et `route`
+
+        Object {
+            "navigation": Object {
+                "addListener": [Function addListener],
+                "canGoBack": [Function canGoBack],
+                "dangerouslyGetParent": [Function dangerouslyGetParent],
+                "dangerouslyGetState": [Function anonymous],
+                "dispatch": [Function dispatch],
+                "goBack": [Function anonymous],
+                "isFocused": [Function isFocused],
+                "navigate": [Function anonymous],
+                "pop": [Function anonymous],
+                "popToTop": [Function anonymous],
+                "push": [Function anonymous],
+                "removeListener": [Function removeListener],
+                "replace": [Function anonymous],
+                "reset": [Function anonymous],
+                "setOptions": [Function setOptions],
+                "setParams": [Function anonymous],
+            },
+            "route": Object {
+                "key": "Welcome-XLmclT-eOHr7X4x_8FO5-",
+                "name": "Welcome",
+                "params": undefined,
+            },
+        } 
 
     - `NavigationContainer` doit envelopper tous les navigateurs (Navigators) de notre application
     
@@ -85,7 +111,7 @@ Dans `App.js`
     - On creer un dossier nommé `screen` et dedans, on va creer quelques fichiers `Screen` (écran)
     - HomeScreen.js, LoginScreen.js, profileScreen.js, WelcomeScreen.js
 
-2) Dans chaque fichiers `Screen` (écran), on va mettre un code simple et similaire pour l'instant, il y aura juste le mot qui sera devant Screnn qui va changer
+2) Dans chaque fichiers `Screen` (écran), on va mettre un code simple et similaire pour l'instant, il y aura juste le mot qui sera devant Screen qui va changer
 
 Dans `HomeScreen.js` et les autres fichiers `Screen` (écran)
 
