@@ -39,7 +39,7 @@ const LoginScreen = (props) => {
 
             <TouchableOpacity onPress={ goBack }>
                 <View style={ styles.button }>
-                    <Text> Retour en arrière</Text>
+                    <Text> Retouner a Welcome</Text>
                 </View>
             </TouchableOpacity>
         </View>
