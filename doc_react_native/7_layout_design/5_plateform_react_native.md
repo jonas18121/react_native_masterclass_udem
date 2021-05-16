@@ -1,3 +1,28 @@
+# L'API Platform de React Native
+
+site : https://reactnative.dev/docs/platform
+
+On crée un fichier `constant.js` dans un dossiers `utils`, qu'on a créer aussi
+
+dedans on crée une constante `prefix` qui contient une condition ternaire
+
+Dans `constant.js`
+
+    import { Platform } from 'react-native';
+
+    export const prefix = Platform.OS === "android" ? "md" : "ios";
+
+
+
+Dans `BookScreen.js`
+
+- On importe notre constante `prefix` depuis notre fichier `constant.js`
+
+- `name={```${prefix}-home```}` on l'utilise dans le composant `Ionicons`
+
+Dans `BookScreen.js`
+
+
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';

@@ -3,6 +3,7 @@ import {
     View, 
     Text, 
     StyleSheet, 
+    Platform
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, Header } from '@react-navigation/stack';
