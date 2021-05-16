@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
 
 const BookScreen = props => {
 
@@ -17,7 +18,8 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "#fff",
-        paddingBottom: 20
+        paddingBottom: 20,
+        marginTop: Constants.statusBarHeight
     }
 });
 
