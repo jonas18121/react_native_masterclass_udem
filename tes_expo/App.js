@@ -11,6 +11,7 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import BookScreen from './screens/BookScreen';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -26,6 +27,12 @@ const App = () => {
                 name="Profile" 
                 component={ProfileScreen} 
                 options={{ headerShown: false }}  
+            />
+
+            <Screen 
+                name="Book" 
+                component={BookScreen}
+                options={{ headerShown: false }} 
             />
 
         </Navigator>

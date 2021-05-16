@@ -17,12 +17,23 @@ const LoginScreen = (props) => {
         params: {},
         screen: "Profile"
     });
+
+    const goBook = () => props.navigation.navigate("Root", {
+        params: {},
+        screen: "Book"
+    });
     
     
     return (
 
         <View style={ styles.container }>
             <Text>Login Screen</Text>
+
+            <TouchableOpacity onPress={ goBook }>
+                <View style={ styles.button }>
+                    <Text> Aller à Book</Text>
+                </View>
+            </TouchableOpacity>
 
             <TouchableOpacity onPress={ goHome }>
                 <View style={ styles.button }>
