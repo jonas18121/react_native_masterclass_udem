@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     View, 
     Text, 
@@ -6,7 +6,10 @@ import {
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, Header } from '@react-navigation/stack';
+import * as Font from "expo-font";
+import Constants from 'expo-constants';
 
+// SCREEN
 import WelcomeScreen from './screens/WelcomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -17,6 +20,45 @@ const { Navigator, Screen } = createStackNavigator();
 
 const App = () => {
 
+    const [loading, setLoading] = useState(true);
+
+    /**
+     * charger toutes nos font
+     */
+    const loadFont = async () => {
+        try {
+            
+            await Font.loadAsync({
+                
+                "Gilroy-Bold":              require('./assets/font/fonts/Gilroy-Bold.ttf'),
+                "GT-Sectra-Fine-Regular":   require('./assets/font/fonts/GT-Sectra-Fine-Regular.ttf'),
+                "Montserrat-Black":         require('./assets/font/fonts/Montserrat-Black.ttf'),
+                "Montserrat-Medium":        require('./assets/font/fonts/Montserrat-Medium.ttf'),
+                "Montserrat-SemiBold":      require('./assets/font/fonts/Montserrat-SemiBold.ttf'),
+            });
+
+            setLoading(false);
+
+        } catch (error) {
+            console.error('erreur', error);
+        }
+    }
+
+    useEffect(() => {
+        loadFont();
+    }, []);
+
+    if (loading) {
+        return (
+            <View style={styles.container}>
+                <Text>loading...</Text>
+            </View>
+        )
+    }
+
+    /**
+     * Navigateur imbriquer
+     */
     const Root = () => (
 
         <Navigator>
@@ -85,11 +127,11 @@ const App = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "green",
+        backgroundColor: "lightgrey",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 35
+        marginTop: Constants.statusBarHeight
     }
 });
 
