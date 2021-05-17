@@ -61,3 +61,11 @@ ou
 ## Installer expo-font
 
     > expo install expo-font
+
+## Netoyer le cache et redémarrer
+
+    > expo r -c
+
+## Netoyer le cache
+
+    > yarn cache clean
