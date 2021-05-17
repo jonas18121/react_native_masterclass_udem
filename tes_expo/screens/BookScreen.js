@@ -2,7 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 
+// composant
 import Header from '../components/Header';
+import Cover from '../components/Cover';
+
+// image
+const Book1 = require('../assets/images/book1.png');
 
 
 
@@ -12,6 +17,7 @@ const BookScreen = props => {
         <View style={ styles.container }>
 
             <Header />
+            <Cover image={Book1} />
         </View>
     );
 }
