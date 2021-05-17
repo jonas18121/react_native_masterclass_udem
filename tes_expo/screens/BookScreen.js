@@ -20,6 +20,7 @@ const BookScreen = props => {
             <Header />
             <Cover image={Book1} />
             <Title title="The Jungle Book" />
+            <Title title="Rudyard Kliing" customStyle={styles.sbTitle} />
         </View>
     );
 }
@@ -33,6 +34,14 @@ const styles = StyleSheet.create({
         backgroundColor: "#000",
         paddingBottom: 20,
         marginTop: Constants.statusBarHeight
+    },
+    sbTitle: {
+        opacity: 0.7,
+        fontFamily: "Montserrat-Medium",
+        fontSize: 18,
+        fontWeight: '500',
+        lineHeight: 18,
+        marginTop: 13
     }
 });
 
