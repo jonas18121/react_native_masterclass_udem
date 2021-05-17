@@ -6,7 +6,7 @@ import {
     Platform
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, Header } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from "expo-font";
 import Constants from 'expo-constants';
 
@@ -117,7 +117,7 @@ const App = () => {
                 <Screen 
                     name="Root" 
                     component={Root} 
-                    options={{ headerShown: false }}
+                    options={{ headerShown: false}}
                 />
 
             </Navigator>
