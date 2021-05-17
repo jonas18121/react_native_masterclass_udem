@@ -1,14 +1,14 @@
 import React from "react";
 import { View, StyleSheet, Text } from 'react-native';
 
-const Title = ({title}) => {
+const Title = ({title, customStyle}) => {
 
     const { container, bookTitle } = styles;
 
     return (
 
         <View style={container}>
-            <Text style={bookTitle}>{title}</Text>
+            <Text style={[bookTitle, customStyle]}>{title}</Text>
         </View>
     );
 }
