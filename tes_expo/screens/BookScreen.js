@@ -43,6 +43,7 @@ const BookScreen = props => {
                 <Rating />
                 <Action />
 
+                <Title left={true} title="You may also like" customStyle={styles.leftStyle} />
                 <CoverList images={images} />
             </View>
         </ScrollView>
@@ -66,6 +67,14 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         lineHeight: 18,
         marginTop: 13
+    },
+    leftStyle: {
+        color: "white",
+        fontFamily: "Montserrat-Medium",
+        fontSize: 14,
+        fontWeight: '600',
+        lineHeight: 14
+
     }
 });
 
