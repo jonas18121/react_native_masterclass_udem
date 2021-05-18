@@ -1,13 +1,15 @@
 import React from "react";
 import { View, StyleSheet, Text } from 'react-native';
 
-const Title = ({title, customStyle}) => {
+const Title = ({title, customStyle, left}) => {
 
-    const { container, bookTitle } = styles;
+    const { container, bookTitle, leftAlign } = styles;
+
+    const getStyle = () => left ? leftAlign : container;
 
     return (
 
-        <View style={container}>
+        <View style={getStyle()}>
             <Text style={[bookTitle, customStyle]}>{title}</Text>
         </View>
     );
@@ -26,7 +28,13 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         lineHeight: 30,
         marginTop: 40
-
+    },
+    leftAlign: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        width: '100%',
+        paddingLeft: 30,
     }
 });
 
