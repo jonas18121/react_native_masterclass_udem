@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         justifyContent: "space-between",
-        width: "100%",
+        width: '100%',
         alignItems: "center",
         paddingHorizontal: 38,
         marginVertical: 20,
