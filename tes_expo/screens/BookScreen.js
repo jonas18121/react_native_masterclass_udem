@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView  } from 'react-native';
 import Constants from 'expo-constants';
 
 // composant
@@ -17,29 +17,33 @@ const Book1 = require('../assets/images/book1.png');
 const BookScreen = props => {
 
     return (
-        <View style={ styles.container }>
 
-            <Header />
-            
-            <Cover image={Book1} />
-            <Title title="The Jungle Book" />
-            <Title title="Rudyard Kliing" customStyle={styles.sbTitle} />
+        <ScrollView style={{flex: 1, backgroundColor: "#000"}}>
 
-            <Rating />
-            <Action />
-        </View>
+            <View style={ styles.container } >
+
+                <Header />
+
+                <Cover image={Book1} />
+                <Title title="The Jungle Book" />
+                <Title title="Rudyard Kliing" customStyle={styles.sbTitle} />
+
+                <Rating />
+                <Action />
+            </View>
+        </ScrollView>
     );
 }
 
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "#000",
         paddingBottom: 20,
-        marginTop: Constants.statusBarHeight
+        marginTop: Constants.statusBarHeight,
     },
     sbTitle: {
         opacity: 0.7,
