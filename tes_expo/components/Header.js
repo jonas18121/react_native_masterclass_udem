@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 38,
         marginVertical: 20,
         marginBottom: 28,
-        backgroundColor: "green"
+        // backgroundColor: "green"
     },
     closeIcon: {
         fontSize: 45,
