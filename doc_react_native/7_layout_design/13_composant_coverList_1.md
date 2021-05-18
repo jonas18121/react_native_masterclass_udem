@@ -1,3 +1,75 @@
+# Notre Composant CoverList partie 1
+
+Dans `CoverList.js`
+
+- `const CoverList = ({images})` images est la props passer depuis `BookScreen.js`
+
+- pour affiché une liste horizontal, il faut mettre `<FlatList horizontal={true} />`
+
+- Pour retourner les enfants, il faut `<FlatList renderItem={(item) => notre_function_creer(item)} />`
+
+- La fonction `renderCover` retourne chaque enfant de la liste
+
+Dans `CoverList.js`
+
+    import React from 'react';
+    import { 
+        View, 
+        Text, 
+        StyleSheet, 
+        FlatList, 
+        TouchableOpacity  
+    } from 'react-native';
+
+    import Cover from './Cover';
+
+    const CoverList = ({images}) => {
+
+        /**
+        * retourne chaque enfant de la liste
+        */
+        const renderCover = ({item}) => {
+            console.log("item",item);
+            return (
+                <TouchableOpacity>
+                    <Cover image={item.imageSrc} />
+                </TouchableOpacity>
+            )
+        }
+
+        return (
+
+
+            <FlatList
+                data={images}
+                horizontal={true}
+                renderItem={(item) => renderCover(item)}
+                keyExtractor={item => item.id}
+            />
+        );
+    }
+
+    const styles = StyleSheet.create({
+        container: {
+
+        }
+    });
+
+    export default CoverList;
+
+
+
+Dans `BookScreen.js`
+
+- `const images` notre liste d'image
+
+- On importe `CoverListe.js`
+
+- `<CoverList images={images} />` on passe la `constante images` dans la `props images` du composant `CoverList`
+
+
+Dans `BookScreen.js`
+
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView  } from 'react-native';
 import Constants from 'expo-constants';

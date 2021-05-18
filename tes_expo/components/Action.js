@@ -3,7 +3,8 @@ import {
     Text, 
     View, 
     StyleSheet, 
-    TouchableOpacity 
+    TouchableOpacity,
+    
 } from 'react-native';
 
 const Action = (props) => {
@@ -13,11 +14,11 @@ const Action = (props) => {
 
         <View style={container}>
 
-            <TouchableOpacity style={price}>
+            <TouchableOpacity onPress={() => {}} style={price}>
                 <Text style={priceContent} >19.99 €</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={preview}>
+            <TouchableOpacity onPress={() => {}} style={preview}>
                 <Text style={previewContent}>Free Preview</Text>
             </TouchableOpacity>
         </View>
