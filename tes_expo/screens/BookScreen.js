@@ -6,6 +6,7 @@ import Constants from 'expo-constants';
 import Header from '../components/Header';
 import Cover from '../components/Cover';
 import Title from '../components/Title';
+import Rating from '../components/Rating';
 
 // image
 const Book1 = require('../assets/images/book1.png');
@@ -21,6 +22,8 @@ const BookScreen = props => {
             <Cover image={Book1} />
             <Title title="The Jungle Book" />
             <Title title="Rudyard Kliing" customStyle={styles.sbTitle} />
+
+            <Rating/>
         </View>
     );
 }
