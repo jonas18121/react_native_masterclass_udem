@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Cover from '../components/Cover';
 import Title from '../components/Title';
 import Rating from '../components/Rating';
+import Action from '../components/Action';
 
 // image
 const Book1 = require('../assets/images/book1.png');
@@ -19,11 +20,13 @@ const BookScreen = props => {
         <View style={ styles.container }>
 
             <Header />
+            
             <Cover image={Book1} />
             <Title title="The Jungle Book" />
             <Title title="Rudyard Kliing" customStyle={styles.sbTitle} />
 
-            <Rating/>
+            <Rating />
+            <Action />
         </View>
     );
 }
