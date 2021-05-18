@@ -15,10 +15,10 @@ const CoverList = ({images}) => {
     * retourne chaque enfant de la liste
     */
     const renderCover = ({item}) => {
-        
+
         return (
             <TouchableOpacity>
-                <Cover image={item.imageSrc} />
+                <Cover small={true} image={item.imageSrc} />
             </TouchableOpacity>
         )
     }
@@ -27,6 +27,8 @@ const CoverList = ({images}) => {
 
 
         <FlatList
+            style={styles.flexFlatList}
+            contentContainerStyle={styles.paddingFlatList}
             data={images}
             horizontal={true}
             renderItem={(item) => renderCover(item)}
@@ -36,8 +38,11 @@ const CoverList = ({images}) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-
+    paddingFlatList: {
+        paddingHorizontal: 25,
+    },
+    flexFlatList: {
+        flex: 1
     }
 });
 
