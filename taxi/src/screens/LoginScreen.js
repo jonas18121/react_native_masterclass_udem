@@ -4,6 +4,8 @@ import Constants from 'expo-constants';
 
 //composant
 import Block from '../components/Block';
+import Title from '../components/Title';
+
 
 const LoginScreen = (props) => {
 
@@ -13,7 +15,9 @@ const LoginScreen = (props) => {
 
         <View style={container}>
 
-            <Block />
+            <Block>
+                <Title content="TAXI APP"></Title>
+            </Block>
         </View>
     )
 }

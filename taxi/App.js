@@ -12,7 +12,7 @@ const { Navigator, Screen } = createStackNavigator();
 export default function App() {
 
     useEffect(() => {
-        StatusBar.setBackgroundColor("yellow");
+        StatusBar.setBackgroundColor("#2dbb54");
     }, []);
 
     return (
