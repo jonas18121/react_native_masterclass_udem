@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 
+//composant
+import Block from '../components/Block';
 
 const LoginScreen = (props) => {
 
@@ -10,7 +12,8 @@ const LoginScreen = (props) => {
     return (
 
         <View style={container}>
-            <Text style={{ color: "black", marginTop: 30}}>Login Screen</Text>
+
+            <Block />
         </View>
     )
 }
