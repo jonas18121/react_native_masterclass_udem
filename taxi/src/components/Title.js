@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: "#fff",
         fontWeight: "bold",
-        // fontFamily: "LeckerliOne"
+        fontFamily: 'LeckerliOne'
     }
 });
 
