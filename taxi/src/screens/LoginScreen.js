@@ -11,8 +11,6 @@ import Title from '../components/Title';
 
 const LoginScreen = (props) => {
 
-    
-
     const { container, icon } = styles;
 
     return (
@@ -21,8 +19,11 @@ const LoginScreen = (props) => {
 
             <Block>
                 <Ionicons name={`${prefix}-car`} style={icon} />
-                <Title content="TAXI APP"></Title>
+                <Title content="TAXI APP" size="big"/>
             </Block>
+
+            <Title content="Authentification" size="small"/>
+            <Title content="Google Connexion" size="medium"/>
         </View>
     )
 }
