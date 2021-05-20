@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
 import { prefix } from '../utils/helpers';
@@ -8,10 +8,12 @@ import { prefix } from '../utils/helpers';
 import Block from '../components/Block';
 import Title from '../components/Title';
 
+const { width, height } = Dimensions.get("window");
+
 
 const LoginScreen = (props) => {
 
-    const { container, icon } = styles;
+    const { container, icon, container_2, titlecontainer } = styles;
 
     return (
 
@@ -22,8 +24,13 @@ const LoginScreen = (props) => {
                 <Title content="TAXI APP" size="big"/>
             </Block>
 
-            <Title content="Authentification" size="small"/>
-            <Title content="Google Connexion" size="medium"/>
+            <View style={container_2}>
+                <View style={titlecontainer}>
+                    <Title content="Authentification" size="small"/>
+                    <Title content="Google Connexion" size="medium"/>
+                </View>
+            </View>
+
         </View>
     )
 }
@@ -39,6 +46,17 @@ const styles = StyleSheet.create({
     icon: {
         fontSize: 80,
         color: "#fff"
+    },
+    container_2: {
+        flexGrow: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    titlecontainer: {
+        width: width - 80,
+        height: 50,
+        justifyContent: "center",
+        alignItems: "flex-start"
     }
 });
 
