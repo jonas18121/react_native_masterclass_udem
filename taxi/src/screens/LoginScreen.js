@@ -1,19 +1,29 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
+import { Ionicons } from '@expo/vector-icons';
+import { prefix } from '../utils/helpers';
 
 //composant
 import Block from '../components/Block';
+import Title from '../components/Title';
+
 
 const LoginScreen = (props) => {
 
-    const { container } = styles;
+    const { container, icon } = styles;
 
     return (
 
         <View style={container}>
 
-            <Block />
+            <Block>
+                <Ionicons name={`${prefix}-car`} style={icon} />
+                <Title content="TAXI APP" size="big"/>
+            </Block>
+
+            <Title content="Authentification" size="small"/>
+            <Title content="Google Connexion" size="medium"/>
         </View>
     )
 }
@@ -25,6 +35,10 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "#fff"
+    },
+    icon: {
+        fontSize: 80,
+        color: "#fff"
     }
 });
 
