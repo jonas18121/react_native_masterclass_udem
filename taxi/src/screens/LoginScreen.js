@@ -7,6 +7,7 @@ import { prefix } from '../utils/helpers';
 //composant
 import Block from '../components/Block';
 import Title from '../components/Title';
+import LoginBtn from '../components/LoginBtn';
 
 const { width, height } = Dimensions.get("window");
 
@@ -29,6 +30,8 @@ const LoginScreen = (props) => {
                     <Title content="Authentification" size="small"/>
                     <Title content="Google Connexion" size="medium"/>
                 </View>
+
+                <LoginBtn />
             </View>
 
         </View>
