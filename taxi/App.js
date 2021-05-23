@@ -9,11 +9,16 @@ import * as Font from 'expo-font';
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 
+// utils
+import { renderIntialScreen } from './src/utils/helpers';
+
 const { Navigator, Screen } = createStackNavigator();
 
 export default function App() {
 
     const [loading, setLoading] = useState(true);
+
+    const [initialScreen, setInitilaScreen] = useState("Login");
 
     const loadRessources = async () => {
         try {
@@ -22,7 +27,11 @@ export default function App() {
                 LeckerliOne:  require('./assets/fonts/LeckerliOne-Regular.ttf')
             });
 
+            const screen = await renderIntialScreen();
+            if(screen) setInitilaScreen(screen);
+
             setLoading(false);
+
         } catch (error) {
             console.error("error loading ressources", error);
         }        
@@ -47,7 +56,10 @@ export default function App() {
     return (
       
         <NavigationContainer>
-            <Navigator screenOptions={{ headerShown: false }}>
+            <Navigator 
+                screenOptions={{ headerShown: false }}
+                initialRouteName={initialScreen}
+            >
                 <Screen name='Login' component={LoginScreen} />
                 <Screen name='Home' component={HomeScreen} />
             </Navigator>

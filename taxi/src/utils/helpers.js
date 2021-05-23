@@ -42,3 +42,17 @@ export const auth = async () => {
         console.error('Erreur d\'autentification : ', error);
     }
 }
+
+export const renderIntialScreen = async () => {
+
+    try {
+
+        const user = await AsyncStorage.getItem('user');
+        JSON.parse(user);
+
+        return user ? "Home" : "Login";
+        
+    } catch (error) {
+        console.error('Erreur de rendu d\'écran initial : ', error);
+    }
+}
