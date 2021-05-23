@@ -16,7 +16,10 @@ const LoginScreen = (props) => {
 
     const { container, icon, container_2, titlecontainer } = styles;
 
-    const handleLogin = () => auth();
+    const handleLogin = () => {
+        auth();
+        props.navigation.navigate('Home');
+    }
     
 
     return (
