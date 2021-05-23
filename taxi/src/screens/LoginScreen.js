@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
-import { prefix } from '../utils/helpers';
+import { prefix, auth } from '../utils/helpers';
 
 //composant
 import Block from '../components/Block';
@@ -15,6 +15,9 @@ const { width, height } = Dimensions.get("window");
 const LoginScreen = (props) => {
 
     const { container, icon, container_2, titlecontainer } = styles;
+
+    const handleLogin = () => auth();
+    
 
     return (
 
@@ -31,7 +34,7 @@ const LoginScreen = (props) => {
                     <Title content="Google Connexion" size="medium"/>
                 </View>
 
-                <LoginBtn />
+                <LoginBtn onPress={handleLogin} />
             </View>
 
         </View>
