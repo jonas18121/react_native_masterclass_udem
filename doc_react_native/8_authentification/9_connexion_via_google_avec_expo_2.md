@@ -6,12 +6,13 @@ On continue la connexion via Google avec Expo
 
 2) On copie la configuration de google et on le colle dans le fichier `utils/helpers.js` par exemple
 
-    const { type, accessToken, user } = await Google.logInAsync({
-        iosClientId: `<YOUR_IOS_CLIENT_ID_FOR_EXPO>`,
-        androidClientId: `<YOUR_ANDROID_CLIENT_ID_FOR_EXPO>`,
-        iosStandaloneAppClientId: `<YOUR_IOS_CLIENT_ID>`,
-        androidStandaloneAppClientId: `<YOUR_ANDROID_CLIENT_ID>`,
-    });
+
+        const { type, accessToken, user } = await Google.logInAsync({
+            iosClientId: `<YOUR_IOS_CLIENT_ID_FOR_EXPO>`,
+            androidClientId: `<YOUR_ANDROID_CLIENT_ID_FOR_EXPO>`,
+            iosStandaloneAppClientId: `<YOUR_IOS_CLIENT_ID>`,
+            androidStandaloneAppClientId: `<YOUR_ANDROID_CLIENT_ID>`,
+        });
 
 Dans `utils/helpers.js`
 
@@ -29,7 +30,7 @@ Dans `utils/helpers.js`
 
     - `androidClientId:` pour Android
 
-- On a créer une fonction asyncrone `auth` , dedans :
+- On a créer une fonction asyncrone `auth` , dans fonction asyncrone `auth` :
 
     - On cree la connexion via Google et on récupère le resultat de ce qui est retourner `user`, `type`, `acessToken`
     
