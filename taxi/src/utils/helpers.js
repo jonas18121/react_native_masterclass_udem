@@ -1,5 +1,6 @@
 import { Platform } from 'react-native';
 import * as Google from 'expo-google-app-auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const prefix = Platform.OS === "ios" ? "ios" : "md";
 
@@ -17,7 +18,7 @@ export const auth = async () => {
         
         const { user, type, acessToken } = await Google.logInAsync(config);
 
-        console.log('result', result);
+        console.log('result', user);
 
         if (type === 'success') {
             
@@ -25,6 +26,16 @@ export const auth = async () => {
 
 
             // là on va stocker l'user dans la memoire interne
+
+            const { name, photoUrl, email } = user;
+
+            await AsyncStorage.setItem('user', JSON.stringify({
+                name,
+                photoUrl,
+                email
+            }));
+
+            console.log('Naviguer vers home');
         }
 
     } catch (error) {
