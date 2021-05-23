@@ -1,6 +1,6 @@
-# Connexion Via Google Avec Expo partie 1
+# Connexion Via Google Avec Expo ( partie 1 )
 
-Doc Google sur Expo : https://docs.expo.io/versions/v41.0.0/sdk/google/
+Doc Google dans Expo : https://docs.expo.io/versions/v41.0.0/sdk/google/
 
 On va mettre place une connexion via Google avec Expo
 
@@ -8,7 +8,7 @@ On va mettre place une connexion via Google avec Expo
 
     > expo install expo-google-app-auth
 
-2) on ce rend a ce lien de console google cloud
+2) On ce rend à ce lien de console google cloud
 
     https://console.cloud.google.com/apis/credentials
 
@@ -30,7 +30,7 @@ On va mettre place une connexion via Google avec Expo
 
 7) On donne un nom a l'application
 
-    - On rentre nom adresse email
+    - On rentre nos adresse email
 
     - Puis `Enregistrer`
 
