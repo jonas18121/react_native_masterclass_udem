@@ -42,18 +42,18 @@ On va mettre place une connexion via Google avec Expo
 
 Pour IOS avec Expo
 
-    - On donne un nom
+    - On donne un nom, dans le champs nom
 
-    - Comme `ID de groupe` on met ceci : host.exp.exponent
+    - Dans le champs `ID de groupe` on met ceci : host.exp.exponent
 
-    - Puis `Creer`
+    - Puis on click sur `Creer`
 
 
 Pour Android avec Expo
 
-    - On donne un nom
+    - On donne un nom, dans le champs nom
 
-    - Comme `Nom du package` on met ceci : host.exp.exponent
+    - Dans le champs `Nom du package` on met ceci : host.exp.exponent
 
     - On met cette commande dans notre terminale
 
@@ -63,4 +63,4 @@ Pour Android avec Expo
     
     - On colle cette clé  dans le champ `Empreinte du certificat SHA-1`
 
-    - Puis `Creer`
+    - Puis on click sur `Creer`
