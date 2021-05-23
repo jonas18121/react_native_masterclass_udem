@@ -16,13 +16,13 @@ import Title from './Title';
 
 const { width, height } = Dimensions.get('window');
 
-const LoginBtn = (props) => {
+const LoginBtn = ({ onPress }) => {
 
     const { logo, container } = styles;
 
     return (
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
             <View style={container}>
                 <Title size="small" content="Google Connexion" />
                 <Image source={Logo} style={logo} />
