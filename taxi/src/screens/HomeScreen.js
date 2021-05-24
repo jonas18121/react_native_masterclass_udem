@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
-import { prefix } from '../utils/helpers';
+import { prefix, logout } from '../utils/helpers';
 
 //composant
 import Block from '../components/Block';
@@ -14,6 +14,10 @@ const { width, height } = Dimensions.get("window");
 
 const HomeScreen = (props) => {
 
+    const userLogout = () => {
+        logout(props);
+    }
+    
     const { 
         container, 
         icon, 
@@ -27,6 +31,8 @@ const HomeScreen = (props) => {
         <View style={container}>
 
             <Block>
+                <RoundBtn onPress={userLogout} iconName={`${prefix}-close-circle`}  />
+
                 <Ionicons name={`${prefix}-car`} style={icon} />
                 <Title content="TAXI APP" size="big"/>
             </Block>

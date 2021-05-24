@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const prefix = Platform.OS === "ios" ? "ios" : "md";
 
+
 const config = {
     expoClientId: `<YOUR_WEB_CLIENT_ID>`,
     iosClientId: `402337104340-mtiadn36k0a7chj5utejs0s4u437gfdl.apps.googleusercontent.com`,
@@ -16,7 +17,7 @@ export const auth = async () => {
 
     try {
         
-        const { user, type, acessToken } = await Google.logInAsync(config);
+        const { user, type, accessToken } = await Google.logInAsync(config);
 
         console.log('result', user);
 
@@ -35,12 +36,25 @@ export const auth = async () => {
                 email
             }));
 
+            await AsyncStorage.setItem('accessToken', JSON.stringify({ accessToken }));
+
+
             console.log('Naviguer vers home');
         }
 
     } catch (error) {
         console.error('Erreur d\'autentification : ', error);
     }
+}
+
+export const logout = async (props) => {
+
+    // await Google.logOutAsync({ accessToken, ...config });
+
+    await AsyncStorage.setItem('accessToken', '');
+    await AsyncStorage.setItem('user', '');
+    
+    props.navigation.navigate('Login')
 }
 
 export const renderIntialScreen = async () => {
