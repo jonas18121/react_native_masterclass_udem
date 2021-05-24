@@ -13,20 +13,21 @@ Dans `PassengerScreen.js`
     - `followsUserLocation` pour suivre le user
 
     -`region`, un objet dans lequel, on va afficher une latitude, une longitude pour avoir la localisation de l'user, ainsi que latitudeDelta et longitudeDelta pour ajuster le niveau de zoom
+.
 
-    < MapView 
-        style={mapStyle} 
-        showsUserLocation
-        followsUserLocation
-        region={{
-            latitude: latitude,
-            longitude: longitude,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.121
-        }}
-    />
+        < MapView 
+            style={mapStyle} 
+            showsUserLocation
+            followsUserLocation
+            region={{
+                latitude: latitude,
+                longitude: longitude,
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.121
+            }}
+        />
 
-- `if (!latitude || !longitude) {}` pour afficher un spinner, si la latitude ou la logitude est égale à null
+- `if (!latitude || !longitude) {}` pour afficher un spinner, si la latitude ou la loogitude est égale à null
 
 Dans `PassengerScreen.js`
 
