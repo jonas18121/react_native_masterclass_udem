@@ -9,6 +9,7 @@ import * as MediaLibrary from 'expo-media-library';
 // screens
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import PassengerScreen from './src/screens/PassengerScreen';
 
 // utils
 import { renderIntialScreen } from './src/utils/helpers';
@@ -57,8 +58,7 @@ export default function App() {
         return (
             <View style={styles.container}>
 
-                {/* // spinner */}
-                <ActivityIndicator />
+                <ActivityIndicator />{/* // spinner */}
             </View>
         );
     }
@@ -72,6 +72,7 @@ export default function App() {
             >
                 <Screen name='Login' component={LoginScreen} />
                 <Screen name='Home' component={HomeScreen} />
+                <Screen name='Passenger' component={PassengerScreen} />
             </Navigator>
         </NavigationContainer>
     );
