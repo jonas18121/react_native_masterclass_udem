@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
 import { prefix, logout } from '../utils/helpers';
+import * as Location from 'expo-location';
 
 //composant
 import Block from '../components/Block';
@@ -11,8 +12,11 @@ import RoundBtn from '../components/RoundBtn';
 
 const { width, height } = Dimensions.get("window");
 
+const initialState = { latitude: null, longitude: null };
 
 const HomeScreen = (props) => {
+
+    const [state, setState ] = useState(initialState);
 
     const userLogout = () => {
         logout(props);
@@ -26,7 +30,35 @@ const HomeScreen = (props) => {
         RoundBtnContainer 
     } = styles;
 
+
     const goTo = route => props.navigation.navigate(route);
+
+    const getUserLocation = async () => {
+
+        try {
+            
+            let { status } = await Location.requestForegroundPermissionsAsync();
+
+            if(status !== "granted"){
+                console.error("Erreur : L'application n'a pas l'autorisation");
+            }
+
+            const { coords : { latitude, longitude } } = await Location.getLastKnownPositionAsync({ enableHighAccuracy: true });
+
+            setState(prevState => ({
+                ...prevState,
+                latitude: latitude,
+                longitude: longitude 
+            }));
+            
+        } catch (error) {
+            console.error('Erreur : ', error );
+        }
+    }
+
+    useEffect(() => {
+        getUserLocation();
+    }, [])
 
     return (
 
