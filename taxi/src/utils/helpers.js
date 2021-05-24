@@ -50,10 +50,11 @@ export const auth = async () => {
 export const logout = async (props) => {
 
     // await Google.logOutAsync({ accessToken, ...config });
+    await new Promise.all([
+        AsyncStorage.setItem('accessToken', ''),
+        AsyncStorage.setItem('user', ''),
+    ]);
 
-    await AsyncStorage.setItem('accessToken', '');
-    await AsyncStorage.setItem('user', '');
-    
     props.navigation.navigate('Login')
 }
 

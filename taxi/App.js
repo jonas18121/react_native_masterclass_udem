@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, StatusBar, ActivityIndicator } from 'react-nati
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
+import * as MediaLibrary from 'expo-media-library';
 
 // screens
 import LoginScreen from './src/screens/LoginScreen';
@@ -22,15 +23,24 @@ export default function App() {
 
     const loadRessources = async () => {
         try {
-            await Font.loadAsync({
-                Poppins:      require('./assets/fonts/Poppins-Regular.ttf'),
-                LeckerliOne:  require('./assets/fonts/LeckerliOne-Regular.ttf')
-            });
 
-            const screen = await renderIntialScreen();
-            if(screen) setInitilaScreen(screen);
+            const result = await new Promise.all([
 
-            setLoading(false);
+                Font.loadAsync({
+                    Poppins:      require('./assets/fonts/Poppins-Regular.ttf'),
+                    LeckerliOne:  require('./assets/fonts/LeckerliOne-Regular.ttf')
+                }),
+                renderIntialScreen(),
+                MediaLibrary.requestPermissionsAsync()
+            ]);
+
+            const route = result[1];
+            const status = result[2].status ;
+
+            if(route && status === "granted" ) {
+                setInitilaScreen(route);
+                setLoading(false);
+            }
 
         } catch (error) {
             console.error("error loading ressources", error);
