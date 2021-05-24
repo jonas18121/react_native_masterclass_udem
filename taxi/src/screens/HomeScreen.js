@@ -36,7 +36,7 @@ const HomeScreen = (props) => {
     const getUserLocation = async () => {
 
         try {
-            
+
             let { status } = await Location.requestForegroundPermissionsAsync();
 
             if(status !== "granted"){
@@ -50,6 +50,8 @@ const HomeScreen = (props) => {
                 latitude: latitude,
                 longitude: longitude 
             }));
+
+            console.log(latitude, longitude);
             
         } catch (error) {
             console.error('Erreur : ', error );

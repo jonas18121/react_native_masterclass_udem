@@ -1,8 +1,32 @@
 # Obtenir La Géolocalisation
 
+Ici on va obtenir des informations sur La Géolocalisation de l'utilisateur
+
+On installe expo location
+
+    > expo install expo-location
+
 Dans `HomeScreen.js`
 
+- On importe expo location
 
+    import * as Location from 'expo-location';
+
+- `const initialState = { latitude: null, longitude: null };`, On crée un state initiale qui sera modifier à la longue
+
+- `const [state, setState ] = useState(initialState);` on cree notre state avec comme valeur initiale : la constante `initialState`
+
+- On cree la fonction asyncrone `getUserLocation()` pour obtenir les informations sur La Géolocalisation
+
+- dans `getUserLocation()`
+
+    - `Location.requestForegroundPermissionsAsync()` pour demander à l'utilisateur son autorisation pour avoir sa localisation
+
+    - `Location.getLastKnownPositionAsync({ enableHighAccuracy: true });` va nous permettre de recupéré la `latitude` et la `longitude`
+
+    - On met a jours le state `setState(prevState => ({ ...prevState,latitude: latitude, longitude: longitude }));`
+
+- On appelle `getUserLocation()` dans `useEffect()`
 
 Dans `HomeScreen.js`
 
