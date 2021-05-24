@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet,
     Dimensions,
-    StatusBar
+    ActivityIndicator,
  } from 'react-native';
 import Constants from 'expo-constants';
 import MapView from 'react-native-maps';
@@ -17,6 +17,8 @@ const initialState = { latitude: null, longitude: null };
 const PassengerScreen = props => {
 
     const [state, setState ] = useState(initialState);
+
+    const { latitude, longitude } = state;
 
     const { container, mapStyle } = styles;
 
@@ -47,12 +49,32 @@ const PassengerScreen = props => {
 
     useEffect(() => {
         getUserLocation();
-        StatusBar.setBackgroundColor("transparent");
     }, []);
+
+    if (!latitude || !longitude) {
+        
+        return (
+            <View style={container}>
+                <ActivityIndicator size='large' />
+            </View>
+        );
+    }
 
     return (
         <View style={container}>
-            <MapView style={mapStyle} />
+
+            <MapView 
+                style={mapStyle} 
+                showsUserLocation
+                followsUserLocation
+                region={{
+                    latitude: latitude,
+                    longitude: longitude,
+                    latitudeDelta: 0.015,
+                    longitudeDelta: 0.121
+                }}
+            />
+
         </View>
     );
 }
@@ -63,6 +85,7 @@ const styles = StyleSheet.create({
         marginTop: Constants.statusBarHeight,
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         backgroundColor: "#fff"
     },
     mapStyle: {
