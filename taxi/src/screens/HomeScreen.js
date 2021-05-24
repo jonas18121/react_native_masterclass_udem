@@ -12,7 +12,10 @@ import RoundBtn from '../components/RoundBtn';
 const { width, height } = Dimensions.get("window");
 
 
+
 const HomeScreen = (props) => {
+
+    
 
     const userLogout = () => {
         logout(props);
@@ -25,6 +28,9 @@ const HomeScreen = (props) => {
         titlecontainer, 
         RoundBtnContainer 
     } = styles;
+
+
+    const goTo = route => props.navigation.navigate(route);
 
     return (
 
@@ -44,8 +50,14 @@ const HomeScreen = (props) => {
                 </View>
 
                 <View style={RoundBtnContainer}>
-                    <RoundBtn iconName={`${prefix}-car`} />
-                    <RoundBtn iconName={`${prefix}-person`}  />
+                    <RoundBtn 
+                        iconName={`${prefix}-car`} 
+                        onPress={() => goTo("Passenger")}
+                    />
+                    <RoundBtn 
+                        iconName={`${prefix}-person`}  
+                        onPress={() => goTo}
+                    />
                 </View>
             </View>
 
