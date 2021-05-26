@@ -50,7 +50,7 @@ Dans `PassengerScreen.js`
     import MapView from 'react-native-maps';
     import * as Location from 'expo-location';
 
-    import PlaceInput from '../utils/helpers';
+    import PlaceInput from '../components/PlaceInput';
 
     const { width, height } = Dimensions.get("window");
 
