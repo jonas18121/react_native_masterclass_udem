@@ -2,6 +2,9 @@ import { Platform } from 'react-native';
 import * as Google from 'expo-google-app-auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+/**
+ * identifie sur quel plate forme l'utilisateur est, IOS ou Android
+ */
 export const prefix = Platform.OS === "ios" ? "ios" : "md";
 
 
@@ -81,4 +84,7 @@ export const renderIntialScreen = async () => {
     }
 }
 
+/**
+ * Clé d'API Google
+ */
 export const API_KEY = "AIzaSyDmvr28g9YHimCnVKu0aK-5z5KIl6BzpCU";
