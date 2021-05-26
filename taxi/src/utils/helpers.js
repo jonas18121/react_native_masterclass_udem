@@ -13,6 +13,9 @@ const config = {
     androidStandaloneAppClientId: `<YOUR_ANDROID_CLIENT_ID>`,
 };
 
+/**
+ * connexion
+ */
 export const auth = async () => {
 
     try {
@@ -47,6 +50,9 @@ export const auth = async () => {
     }
 }
 
+/**
+ * Déconnexion
+ */
 export const logout = async (props) => {
 
     // await Google.logOutAsync({ accessToken, ...config });
@@ -58,6 +64,9 @@ export const logout = async (props) => {
     props.navigation.navigate('Login')
 }
 
+/**
+ * fourni l'écran principale
+ */
 export const renderIntialScreen = async () => {
 
     try {
@@ -71,3 +80,5 @@ export const renderIntialScreen = async () => {
         console.error('Erreur de rendu d\'écran initial : ', error);
     }
 }
+
+export const API_KEY = "AIzaSyDmvr28g9YHimCnVKu0aK-5z5KIl6BzpCU";
