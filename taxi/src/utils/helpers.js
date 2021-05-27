@@ -88,3 +88,8 @@ export const renderIntialScreen = async () => {
  * Clé d'API Google
  */
 export const API_KEY = "AIzaSyDmvr28g9YHimCnVKu0aK-5z5KIl6BzpCU";
+
+/**
+ * url de base pour Google Map API
+ */
+export const BASE_URL = "https://maps.googleapis.com/maps/api";
