@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
     TextInput,
     View ,
@@ -7,13 +7,31 @@ import {
 } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
-import { prefix } from '../utils/helpers';
+import { prefix, BASE_URL, API_KEY } from '../utils/helpers';
 
 const { width, height } = Dimensions.get('window');
 
+const initialState = {
+    place: ""
+};
+
 const PlaceInput = props => {
 
+    const [ state, setState ] = useState(initialState);
+
     const { container, icon, input, inputContainer } = styles;
+
+    const { place } = state;
+
+    const handleChangeText = value => {
+        setState(prevState => ({
+            ...prevState,
+            place: value
+        }));
+        const url = `${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}`
+        console.log('url', url);
+    }
+
 
     return (
 
@@ -21,6 +39,8 @@ const PlaceInput = props => {
             <View style={inputContainer}>
                 <TextInput
                     style={input}
+                    value={place}
+                    onChangeText={handleChangeText}
                 />
                 <Ionicons 
                     style={icon}
