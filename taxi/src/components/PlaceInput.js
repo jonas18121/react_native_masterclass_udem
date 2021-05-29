@@ -6,16 +6,18 @@ import {
     Dimensions
 } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import axios from 'axios';
 
 import { prefix, BASE_URL, API_KEY } from '../utils/helpers';
 
 const { width, height } = Dimensions.get('window');
 
 const initialState = {
-    place: ""
+    place: "",
+    prediction: []
 };
 
-const PlaceInput = props => {
+const PlaceInput = ({ latitude, longitude }) => {
 
     const [ state, setState ] = useState(initialState);
 
@@ -23,13 +25,30 @@ const PlaceInput = props => {
 
     const { place } = state;
 
+    const search = async url => {
+        try {
+
+            const { data : { prediction } } = await axios.get(url);
+
+            setState(prevState => ({
+                ...prevState,
+                prediction
+            }));
+
+        } catch (error) {
+            console.error('Erreur search : ', error);
+        }
+    }
+
     const handleChangeText = value => {
         setState(prevState => ({
             ...prevState,
             place: value
         }));
-        const url = `${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}`
+        const url = `${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}&origin=${latitude},${longitude}&radius=2000&language=fr`
         console.log('url', url);
+
+        search(url)
     }
 
 
