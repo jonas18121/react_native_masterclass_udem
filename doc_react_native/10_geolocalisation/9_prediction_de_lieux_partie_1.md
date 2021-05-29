@@ -1,4 +1,4 @@
-# Obtenir Des Prédictions De Lieux
+# Obtenir Des Prédictions De Lieux (Partie 1)
 
 On va Obtenir Des Prédictions De Lieux qui correspond au terme qu'il aura rentrer dans le champ
 
@@ -34,7 +34,7 @@ Dans `utilis/helpers.js`
 
     2) `key`, = notre clé d'API
 
-    - les autres paramètre qui ne sont pas obligatoire sont sur le site 
+    - les autres paramètres qui ne sont pas obligatoire sont sur le site 
 
 Dans `utilis/helpers.js`
 
@@ -156,6 +156,8 @@ Dans `PlaceInput.js`
 - Si on fais un teste et qu'on récupère le resultat depuis le console.log(), on pourra coller le resultat dans l'url le plus haut ne notre navigateur, et on verra une réponse en `json`, 
 
 - si on a une erreur, c'est parce qu'il faut créer un compte google de facturation dans notre google.console.cloud. sinon tout est bon
+
+- A cette étape avec le `console.log('url', url);` , On devrait avoir une Objet JSON qui représente la prédiction avec , description, id etc...
 
 Dans `PlaceInput.js`
 
