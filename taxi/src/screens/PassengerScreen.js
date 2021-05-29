@@ -76,7 +76,8 @@ const PassengerScreen = props => {
                     longitudeDelta: 0.121
                 }}
             />
-            <PlaceInput />
+
+            <PlaceInput latitude={latitude} longitude={longitude} />
         </View>
     );
 }
