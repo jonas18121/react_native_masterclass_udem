@@ -5,6 +5,8 @@ import {
     StyleSheet,
     Dimensions,
     ActivityIndicator,
+    TouchableWithoutFeedback,
+    Keyboard
  } from 'react-native';
 import Constants from 'expo-constants';
 import MapView from 'react-native-maps';
@@ -63,22 +65,26 @@ const PassengerScreen = props => {
     }
 
     return (
-        <View style={container}>
 
-            <MapView 
-                style={mapStyle} 
-                showsUserLocation
-                followsUserLocation
-                region={{
-                    latitude: latitude,
-                    longitude: longitude,
-                    latitudeDelta: 0.015,
-                    longitudeDelta: 0.121
-                }}
-            />
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 
-            <PlaceInput latitude={latitude} longitude={longitude} />
-        </View>
+            <View style={container}>
+
+                <MapView 
+                    style={mapStyle} 
+                    showsUserLocation
+                    followsUserLocation
+                    region={{
+                        latitude: latitude,
+                        longitude: longitude,
+                        latitudeDelta: 0.015,
+                        longitudeDelta: 0.121
+                    }}
+                />
+
+                <PlaceInput latitude={latitude} longitude={longitude} />
+            </View>
+        </TouchableWithoutFeedback>
     );
 }
 

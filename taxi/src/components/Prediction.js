@@ -11,7 +11,7 @@ const Prediction = ({ main_text, secondary_text }) => {
 
     return (
         <View style={ container }>
-            <Text style={ secondary }>{ secondary_text }</Text>
+            <Text style={ secondary } numberOfLines={1}>{ secondary_text }</Text>
             <Text style={ main }>{ main_text }</Text>
         </View>
     );
