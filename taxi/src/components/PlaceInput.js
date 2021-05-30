@@ -3,7 +3,8 @@ import {
     TextInput,
     View ,
     StyleSheet,
-    Dimensions
+    Dimensions,
+    ActivityIndicator
 } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
@@ -14,7 +15,8 @@ const { width, height } = Dimensions.get('window');
 
 const initialState = {
     place: "",
-    prediction: []
+    prediction: [],
+    loading: false
 };
 
 const PlaceInput = ({ latitude, longitude }) => {
@@ -23,7 +25,7 @@ const PlaceInput = ({ latitude, longitude }) => {
 
     const { container, icon, input, inputContainer } = styles;
 
-    const { place } = state;
+    const { place, loading } = state;
 
     const search = async url => {
         try {
@@ -32,7 +34,8 @@ const PlaceInput = ({ latitude, longitude }) => {
 
             setState(prevState => ({
                 ...prevState,
-                prediction
+                prediction,
+                loading: false
             }));
 
         } catch (error) {
@@ -43,7 +46,8 @@ const PlaceInput = ({ latitude, longitude }) => {
     const handleChangeText = value => {
         setState(prevState => ({
             ...prevState,
-            place: value
+            place: value,
+            loading: true
         }));
         const url = `${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}&origin=${latitude},${longitude}&radius=2000&language=fr`
         console.log('url', url);
@@ -61,10 +65,16 @@ const PlaceInput = ({ latitude, longitude }) => {
                     value={place}
                     onChangeText={handleChangeText}
                 />
-                <Ionicons 
-                    style={icon}
-                    name={`${prefix}-search`} 
-                />
+
+                {!loading &&
+
+                    <Ionicons 
+                        style={icon}
+                        name={`${prefix}-search`} 
+                    />
+                }
+
+                {loading && <ActivityIndicator />}
             </View>
         </View>
     );
