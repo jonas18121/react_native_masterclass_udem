@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import Prediction from './Prediction';
 
 import { prefix, BASE_URL, API_KEY } from '../utils/helpers';
 
@@ -25,8 +26,12 @@ const PlaceInput = ({ latitude, longitude }) => {
 
     const { container, icon, input, inputContainer } = styles;
 
-    const { place, loading } = state;
+    const { place, loading, prediction } = state;
 
+    /**
+     * 
+     * recherche une prediction 
+     */
     const search = async url => {
         try {
 
@@ -55,6 +60,25 @@ const PlaceInput = ({ latitude, longitude }) => {
         search(url)
     }
 
+    /**
+     * 
+     * retoune chaque ville/rue/pays/entreprise d'une prédiction
+     */
+    const renderPredictions = () => {
+        return prediction.map(prediction => {
+
+            const { structure_formatting, id, place_id } = prediction;
+
+            return (
+                <Prediction 
+                    main_text={structure_formatting.main_text}
+                    secondary_text={structure_formatting.secondary_text}
+                    key={id}
+                />
+            );
+        });
+    }
+
 
     return (
 
@@ -76,6 +100,8 @@ const PlaceInput = ({ latitude, longitude }) => {
 
                 {loading && <ActivityIndicator />}
             </View>
+
+            { (!loading && prediction.length > 0) && renderPredictions() }
         </View>
     );
 } 
