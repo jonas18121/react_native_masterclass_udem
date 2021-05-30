@@ -75,7 +75,7 @@ Dans `PlaceInput.js`
                 place: value,
                 loading: true
             }));
-            const url = `${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}&origin=${latitude},${longitude}&radius=2000&language=fr`
+            const url = `${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}&location=${latitude},${longitude}&radius=2000&language=fr`
             console.log('url', url);
 
             search(url)
