@@ -4,9 +4,9 @@ Dans `PlaceInput.js`
 
 - `const PlaceInput = ({ latitude, longitude })`, on récupère en props, la latitude et longitude qui viennent depuis `PassengerScreen.js`
 
-- const url = ` ${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}&origin=${latitude},${longitude}&radius=2000&language=fr` , 
+- const url = ` ${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}&location=${latitude},${longitude}&radius=2000&language=fr` , 
 
-    - on passe la latitude et la longitude dans le paramètre `origin`, 
+    - on passe la latitude et la longitude dans le paramètre `location`, 
 
     - `radius` = le rayon de recherche
 
@@ -83,7 +83,7 @@ Dans `PlaceInput.js`
                 ...prevState,
                 place: value
             }));
-            const url = `${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}&origin=${latitude},${longitude}&radius=2000&language=fr`
+            const url = `${BASE_URL}/place/autocomplete/json?key=${API_KEY}&input=${value}&location=${latitude},${longitude}&radius=2000&language=fr`
             console.log('url', url);
 
             search(url)
