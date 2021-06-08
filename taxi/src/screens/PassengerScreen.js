@@ -13,6 +13,7 @@ import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 
 import PlaceInput from '../components/PlaceInput';
+import { BASE_URL, API_KEY } from '../utils/helpers';
 
 const { width, height } = Dimensions.get("window");
 
@@ -26,6 +27,22 @@ const PassengerScreen = props => {
 
     const { container, mapStyle } = styles;
 
+    /**
+     * donne une route lorsqu'on clique sur une prediction
+     * @param {*} place_id 
+     */
+    const handlePredictionPress = async place_id => {
+
+        try {
+            const url = `${BASE_URL}/directions/json?key=${API_KEY}&destination=place_id:${place_id}&origin=${latitude},${longitude}`;
+        } catch (error) {
+            console.log(`Error prediction press : ${error}`);
+        }
+    }
+
+    /**
+     * geoloc
+     */
     const getUserLocation = async () => {
 
         try {
@@ -82,7 +99,11 @@ const PassengerScreen = props => {
                     }}
                 />
 
-                <PlaceInput latitude={latitude} longitude={longitude} />
+                <PlaceInput 
+                    latitude={latitude} 
+                    longitude={longitude}
+                    onPredictionPress={handlePredictionPress}
+                />
             </View>
         </TouchableWithoutFeedback>
     );
