@@ -4,7 +4,7 @@ On va Obtenir Des Prédictions De Lieux qui correspond au terme qu'il aura rentr
 
 Les Prédictions sont comme des auto complétions
 
-RDV syr le site de `google map plateform` dans l'onglet `Place Autocomplete` https://developers.google.com/maps/documentation/places/web-service/autocomplete
+RDV sur le site de `google map plateform` dans l'onglet `Place Autocomplete` https://developers.google.com/maps/documentation/places/web-service/autocomplete
 
 
 Dans `utilis/helpers.js`
