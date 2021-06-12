@@ -13,7 +13,7 @@ import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 
 import PlaceInput from '../components/PlaceInput';
-import { BASE_URL, API_KEY } from '../utils/helpers';
+import { BASE_URL, API_KEY, getRoute, decodePoint } from '../utils/helpers';
 
 const { width, height } = Dimensions.get("window");
 
@@ -35,6 +35,11 @@ const PassengerScreen = props => {
 
         try {
             const url = `${BASE_URL}/directions/json?key=${API_KEY}&destination=place_id:${place_id}&origin=${latitude},${longitude}`;
+
+            const points = await getRoute(url);
+
+            decodePoint(points);
+
         } catch (error) {
             console.log(`Error prediction press : ${error}`);
         }

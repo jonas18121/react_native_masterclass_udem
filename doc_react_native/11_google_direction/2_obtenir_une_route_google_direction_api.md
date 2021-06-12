@@ -235,7 +235,27 @@ Dans `PlaceInput.js`
 
     - Les origins : `origin=${latitude},${longitude}`
 
-Si on fait un `console.log(url)`, on verra une url dans le terminale, si on le copie-colle dans notre navigateur , on verra que ça nous retourne une route
+Si on fait un `console.log(url)`, on verra une url dans le terminale, si on le copie-colle dans notre navigateur , on verra que ça nous retourne un object avec la propriété route
+
+exemple
+
+    {
+        "geocoded_waypoints": [...],
+        "routes": [
+            {
+                "bounds": {...}
+                "copyrights": "Map data @2020",
+                "legs": [...],
+                "overview_polyline": {
+                    "points": "blabla|blablablabla_blablabla_blablabla{blablablabla}@blablablabla@blablablabla"
+                },
+                "summary": "Boulevard Du 30 Juin",
+                "warning": [],
+                "waypoint_order": []
+            }
+        ],
+        "status": "OK"
+    }
 
 Dans `PassengerScreen.js`
 
