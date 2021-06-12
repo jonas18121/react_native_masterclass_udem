@@ -52,7 +52,7 @@ exemple :
 
 - On va créer une fonction `getRoute()` pour récupérer la propriété points, du tableau route qu'on voit tout en haut
 
-- On va créer une fonction `decodePoint()` pour decoder les ponts avec `const fixPoint = PolyLine.decode(point);`
+- On va créer une fonction `decodePoint()` pour decoder les ponts avec `const fixPoints = PolyLine.decode(point);`
 
 Dans `utils/helpers.js`
 
@@ -167,7 +167,7 @@ export const getRoute = async url => {
 
         const { data : { route } } = await axios.get(url);
 
-        const points = routes[0].overwiew_polyline.points;
+        const points = routes[0].overview_polyline.points;
 
         return points;
         
@@ -182,9 +182,9 @@ export const getRoute = async url => {
  */
 export const decodePoint = point => {
 
-    const fixPoint = PolyLine.decode(point);
+    const fixPoints = PolyLine.decode(point);
 
-    console.log('fixPoint', fixPoint)
+    console.log('fixPoints', fixPoints)
 
 };
 

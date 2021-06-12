@@ -1,3 +1,39 @@
+# Décoder Le Point Avec PolyLine De Mapbox partie 2
+
+
+### Dans utils/helpers.js
+
+- Si on fait un `console.log(fixPoints)`, on verra que `fixPoints` retourne un tableau de tableaux qui contient une latitude et une longitude.
+
+    fixPoints = [
+        [ latitude, longitude ],
+        [ latitude, longitude ],
+        [ latitude, longitude ],
+        [ latitude, longitude ]
+    ];
+
+- Mais, nous on veut que cela devienne un tableau d'objet, donc on va le convertir 
+
+    const route = fixPoints.map(fixPoint => {
+        return {
+            latitude: fixPoint[0],
+            longitude: fixPoint[1]
+        }
+    });
+
+- Si on fait un `console.log(route)`, on verra que `route` retourne un tableau d'objets qui contient une latitude et une longitude.
+
+    const route = [  
+        { latitude: aaa, longitude: bbb }, 
+        { latitude: ccc, longitude: ddd }, 
+        { latitude: eee, longitude: fff },
+        { latitude: ggg, longitude: hhh } 
+    ]
+
+
+Dans `utils/helpers.js`
+
+
 import { Platform } from 'react-native';
 import * as Google from 'expo-google-app-auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
