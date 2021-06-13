@@ -9,7 +9,7 @@ import {
     Keyboard
  } from 'react-native';
 import Constants from 'expo-constants';
-import MapView from 'react-native-maps';
+import MapView, { Polyline } from 'react-native-maps';
 import * as Location from 'expo-location';
 
 import PlaceInput from '../components/PlaceInput';
@@ -17,13 +17,23 @@ import { BASE_URL, API_KEY, getRoute, decodePoint } from '../utils/helpers';
 
 const { width, height } = Dimensions.get("window");
 
-const initialState = { latitude: null, longitude: null };
+const initialState = { 
+    latitude: null, 
+    longitude: null,
+    coordinates: [],
+    destinationCoords: null 
+};
 
 const PassengerScreen = props => {
 
     const [state, setState ] = useState(initialState);
 
-    const { latitude, longitude } = state;
+    const { 
+        latitude, 
+        longitude,
+        coordinates,
+        destinationCoords 
+    } = state;
 
     const { container, mapStyle } = styles;
 
@@ -38,7 +48,13 @@ const PassengerScreen = props => {
 
             const points = await getRoute(url);
 
-            decodePoint(points);
+            const coordinates = decodePoint(points);
+
+            setState(prevState => ({
+                ...prevState,
+                coordinates,
+                destinationCoords: coordinates[coorninates.length - 1]
+            }))
 
         } catch (error) {
             console.log(`Error prediction press : ${error}`);
@@ -102,7 +118,13 @@ const PassengerScreen = props => {
                         latitudeDelta: 0.015,
                         longitudeDelta: 0.121
                     }}
-                />
+                >
+                    {coordinates.length > 0 && (
+                        <Polyline 
+                            coordinates={coordinates}
+                        />
+                    )}
+                </MapView>
 
                 <PlaceInput 
                     latitude={latitude} 
