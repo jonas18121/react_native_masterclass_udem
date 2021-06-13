@@ -122,6 +122,8 @@ const PassengerScreen = props => {
                     {coordinates.length > 0 && (
                         <Polyline 
                             coordinates={coordinates}
+                            strokeWidth={4}
+                            strokeColors="#2dbb54"
                         />
                     )}
                 </MapView>

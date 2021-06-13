@@ -75,7 +75,12 @@ const PlaceInput = ({ latitude, longitude, onPredictionPress }) => {
                     secondary_text={structure_formatting.secondary_text}
                     key={id}
                     onPress={() => {
-                        onPredictionPress(place_id)
+                        onPredictionPress(place_id);
+                        setState(prevState => ({
+                            ...prevState,
+                            prediction: [],
+                            place: structure_formatting.main_text
+                        }));
                     }}
                 />
             );
