@@ -9,7 +9,7 @@ import {
     Keyboard
  } from 'react-native';
 import Constants from 'expo-constants';
-import MapView, { Polyline } from 'react-native-maps';
+import MapView, { Polyline, Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 
 import PlaceInput from '../components/PlaceInput';
@@ -126,6 +126,8 @@ const PassengerScreen = props => {
                             strokeColors="#2dbb54"
                         />
                     )}
+
+                    {destinationCoords && ( <Marker coordinate={destinationCoords} />)}
                 </MapView>
 
                 <PlaceInput 
