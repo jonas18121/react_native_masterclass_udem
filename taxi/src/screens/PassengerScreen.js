@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
     View,
     Text,
@@ -28,6 +28,8 @@ const PassengerScreen = props => {
 
     const [state, setState ] = useState(initialState);
 
+    const mapView = useRef();
+
     const { 
         latitude, 
         longitude,
@@ -54,7 +56,17 @@ const PassengerScreen = props => {
                 ...prevState,
                 coordinates,
                 destinationCoords: coordinates[coorninates.length - 1]
-            }))
+            }));
+
+            mapView.current.fitToCoordinates(coordinates, {
+                animated: true,
+                edgePadding: {
+                    top: 100,
+                    bottom: 40,
+                    left: 40,
+                    right: 40
+                }
+            });
 
         } catch (error) {
             console.log(`Error prediction press : ${error}`);
@@ -109,6 +121,7 @@ const PassengerScreen = props => {
             <View style={container}>
 
                 <MapView 
+                    ref={mapView}
                     style={mapStyle} 
                     showsUserLocation
                     followsUserLocation
@@ -122,7 +135,7 @@ const PassengerScreen = props => {
                     {coordinates.length > 0 && (
                         <Polyline 
                             coordinates={coordinates}
-                            strokeWidth={4}
+                            strokeWidth={8}
                             strokeColors="#2dbb54"
                         />
                     )}
