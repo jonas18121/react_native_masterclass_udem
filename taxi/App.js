@@ -10,6 +10,7 @@ import * as MediaLibrary from 'expo-media-library';
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import PassengerScreen from './src/screens/PassengerScreen';
+import DriverScreen from './src/screens/DriverScreen';
 
 // utils
 import { renderIntialScreen } from './src/utils/helpers';
@@ -73,6 +74,7 @@ export default function App() {
                 <Screen name='Login' component={LoginScreen} />
                 <Screen name='Home' component={HomeScreen} />
                 <Screen name='Passenger' component={PassengerScreen} />
+                <Screen name='Driver' component={DriverScreen} />
             </Navigator>
         </NavigationContainer>
     );
