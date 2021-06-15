@@ -56,7 +56,7 @@ const HomeScreen = (props) => {
                     />
                     <RoundBtn 
                         iconName={`${prefix}-person`}  
-                        onPress={() => goTo}
+                        onPress={() => goTo("Driver")}
                     />
                 </View>
             </View>
