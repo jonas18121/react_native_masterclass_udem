@@ -90,6 +90,11 @@ export const renderIntialScreen = async () => {
 }
 
 /**
+ * adresse ip locale
+ */
+export const SERVER_URL = "http://172.30.144.1:4000";
+
+/**
  * Clé d'API Google
  */
 export const API_KEY = "AIzaSyDmvr28g9YHimCnVKu0aK-5z5KIl6BzpCU";
