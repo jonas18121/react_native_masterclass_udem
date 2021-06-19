@@ -8,6 +8,10 @@ import {
 import Constants from 'expo-constants';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
+import SocketIO from 'socket.io-client';
+import { SERVER_URL } from '../utils/helpers';
+
+let io;
 
 const { width, height } = Dimensions.get("window");
 
@@ -28,6 +32,19 @@ const DriverScreen = props => {
     } = state;
 
     const { container, mapStyle } = styles;
+
+    /**
+     * 
+     * chercher un passager 
+     */
+    const searchPassenger = ({latitude, longitude}) => {
+        io = SocketIO.connect(SERVER_URL);
+        io.on('connect', () => {
+            console.log('connexion taxi réussie');
+
+            io.emit('requestPassenger', {latitude, longitude});
+        })
+    }
 
     /**
      * geoloc
@@ -51,6 +68,8 @@ const DriverScreen = props => {
             }));
 
             console.log(latitude, longitude);
+
+            searchPassenger({latitude, longitude});
             
         } catch (error) {
             console.error('Erreur : ', error );
