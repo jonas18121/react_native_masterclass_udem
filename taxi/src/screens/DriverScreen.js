@@ -42,6 +42,7 @@ const DriverScreen = props => {
         io.on('connect', () => {
             console.log('connexion taxi réussie');
 
+            //requête pour chercher un passager
             io.emit('requestPassenger', {latitude, longitude});
         })
     }

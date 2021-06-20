@@ -11,11 +11,14 @@ import {
 import Constants from 'expo-constants';
 import MapView, { Polyline, Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import SocketIO from 'socket.io-client';
 
 import PlaceInput from '../components/PlaceInput';
-import { BASE_URL, API_KEY, getRoute, decodePoint } from '../utils/helpers';
+import { BASE_URL, API_KEY, getRoute, decodePoint, SERVER_URL } from '../utils/helpers';
 
 const { width, height } = Dimensions.get("window");
+
+let io;
 
 const initialState = { 
     latitude: null, 
@@ -38,6 +41,14 @@ const PassengerScreen = props => {
     } = state;
 
     const { container, mapStyle } = styles;
+
+    const connectSocket = () => {
+        io = SocketIO.connect(SERVER_URL);
+
+        io.on('connect', () => {
+            console.log('connexion passager réussie');
+        })
+    }
 
     /**
      * donne une route lorsqu'on clique sur une prediction
@@ -68,6 +79,9 @@ const PassengerScreen = props => {
                 }
             });
 
+            //requête pour chercher un taxi
+            io.emit('requestTaxi', {latitude, longitude});
+
         } catch (error) {
             console.log(`Error prediction press : ${error}`);
         }
@@ -95,6 +109,8 @@ const PassengerScreen = props => {
             }));
 
             console.log(latitude, longitude);
+
+            connectSocket();
             
         } catch (error) {
             console.error('Erreur : ', error );
