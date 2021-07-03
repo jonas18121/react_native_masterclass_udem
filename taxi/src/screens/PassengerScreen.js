@@ -6,7 +6,8 @@ import {
     Dimensions,
     ActivityIndicator,
     TouchableWithoutFeedback,
-    Keyboard
+    Keyboard,
+    Alert
  } from 'react-native';
 import Constants from 'expo-constants';
 import MapView, { Polyline, Marker } from 'react-native-maps';
@@ -47,7 +48,9 @@ const PassengerScreen = props => {
 
         io.on('connect', () => {
             console.log('connexion passager réussie');
-        })
+        });
+
+        
     }
 
     /**
