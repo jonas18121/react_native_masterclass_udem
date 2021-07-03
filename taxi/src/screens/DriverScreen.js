@@ -44,6 +44,17 @@ const DriverScreen = props => {
 
             //requête pour chercher un passager
             io.emit('requestPassenger', {latitude, longitude});
+
+            io.on('requestTaxi', passInfo => {
+
+                setState(prevState => ({
+                    ...prevState,
+                    destinationCoords: {
+                        latitude: passInfo.latitude,
+                        longitude: passInfo.longitude
+                    }
+                }));
+            })
         })
     }
 
