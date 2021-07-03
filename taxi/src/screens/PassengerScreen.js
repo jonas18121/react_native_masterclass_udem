@@ -25,7 +25,8 @@ const initialState = {
     latitude: null, 
     longitude: null,
     coordinates: [],
-    destinationCoords: null 
+    destinationCoords: null,
+    taxiCoords: null
 };
 
 const PassengerScreen = props => {
@@ -50,7 +51,15 @@ const PassengerScreen = props => {
             console.log('connexion passager réussie');
         });
 
-        
+        io.on('requestPassenger', taxiInfo => {
+            setState(prevState => ({
+                ...prevState,
+                taxiCoords: {
+                    latitude: taxiInfo.lat,
+                    longitude: taxiInfo.long
+                }
+            }));
+        })
     }
 
     /**
