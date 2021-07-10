@@ -4,6 +4,7 @@ import {
     StyleSheet,
     Dimensions,
     ActivityIndicator,
+    Alert
  } from 'react-native';
 import Constants from 'expo-constants';
 import MapView from 'react-native-maps';
@@ -54,6 +55,26 @@ const DriverScreen = props => {
                         longitude: passInfo.longitude
                     }
                 }));
+
+                Alert.alert(
+                    "Passager trouver",
+                    "Acceptez-vous la course ?",
+                    [
+                        {
+                            text: "Refuser",
+                            onPress: () => {}
+                        },
+                        {
+                            text: "Accpter",
+                            onPress: () => {
+                                io.emit('requestPassenger', { latitude, longitude });
+                            }
+                        }
+                    ],
+                    {
+                        cancelable: false
+                    }
+                );
             })
         })
     }
