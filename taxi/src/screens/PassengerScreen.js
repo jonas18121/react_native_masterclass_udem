@@ -52,6 +52,9 @@ const PassengerScreen = props => {
         });
 
         io.on('requestPassenger', taxiInfo => {
+
+            Alert.alert("Taxi en route");
+
             setState(prevState => ({
                 ...prevState,
                 taxiCoords: {
